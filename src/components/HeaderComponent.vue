@@ -13,6 +13,7 @@
 
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables' as *;
+
     header {
         width: 100%;
         background-color: $thirdcolor;
@@ -21,6 +22,9 @@
         img {
             height: 70px;
             margin-right: 20px;
+        }
+        h1 {
+            margin: 0;
         }
     }
 </style>

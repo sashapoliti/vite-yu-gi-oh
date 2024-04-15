@@ -1,12 +1,12 @@
 <template>
-    <header>
-        ciao
-    </header>
+    <main>
+        ciao main
+    </main>
 </template>
 
 <script>
     export default {
-        name : 'HeaderComponent',
+        name : 'MainComponent',
     }
 </script>
 

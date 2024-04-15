@@ -26,10 +26,12 @@ export default {
         .then((res) => {
           console.log(res.data.data);
           this.storage.cards = res.data.data;
-        }).catch((error) => {
+        })
+        .catch((error) => {
           console.log(error);
-        }).finally(() => {
-          console.log('finally');
+        })
+        .finally(() => {
+          console.log("finally");
         });
     },
   },

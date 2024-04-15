@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     getCards() {
+      this.storage.loading = true;
       axios
         .get(this.storage.apiUrl + this.storage.endPoint.cards)
         .then((res) => {
@@ -31,7 +32,7 @@ export default {
           console.log(error);
         })
         .finally(() => {
-          console.log("finally");
+          this.storage.loading = false;
         });
     },
   },

@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div class="header-cards">
+    <div class="header-cards" v-if="!storage.loading">
       <h6>Found {{ storage.cards.length }} cards</h6>
     </div>
-    <div class="row">
+    <div class="row" v-if="!storage.loading">
       <div
-        class="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 gy-4"
+        class="col-12 col-md-6 col-lg-4 col-xl-3 gy-4"
         v-for="card in storage.cards"
         :key="card.id"
       >
@@ -17,16 +17,19 @@
         />
       </div>
     </div>
+    <ApiLoad v-else />
   </div>
 </template>
 
 <script>
 import { storage } from "../data/storage.js";
 import CardComponent from "./CardComponent.vue";
+import ApiLoad from "./ApiLoad.vue";
 export default {
   name: "CardList",
   components: {
     CardComponent,
+    ApiLoad,
   },
   data() {
     return {

@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent />
-  <MainComponent />
+  <MainComponent @turn-page="getCards()" />
 </template>
 
 <script>
@@ -28,6 +28,12 @@ export default {
   },
   methods: {
     setParams() {
+      this.storage.options = {
+        params: {
+          num: 20,
+          offset: 0,
+        },
+      };
       if (this.storage.selectedArchetype) {
         this.storage.options.params.archetype = this.storage.selectedArchetype;
       } else {
@@ -45,12 +51,17 @@ export default {
         .then((res) => {
           console.log(res.data.data);
           this.storage.total = res.data.meta.total_rows;
-          const { total_pages, pages_remaining, previous_page_offset, next_page_offset } = res.data.meta;
+          const {
+            total_pages,
+            pages_remaining,
+            previous_page_offset,
+            next_page_offset,
+          } = res.data.meta;
           this.storage.pages = {
             total_pages,
             pages_remaining,
             previous_page_offset,
-            next_page_offset
+            next_page_offset,
           };
           console.log(this.storage.pages);
           this.storage.cards = res.data.data.map((card) => {

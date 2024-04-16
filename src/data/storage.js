@@ -13,6 +13,7 @@ export const storage = reactive({
     }
   },
   total: 0,
+  pages: {},
   cards: [],
   archetypeList: [],
   selectedArchetype: "",

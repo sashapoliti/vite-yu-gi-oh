@@ -3,7 +3,9 @@
     <section class="container">
       <SelectArchetype />
     </section>
-    <section class="container">
+    <section class="container position-relative">
+      <button class="prev-page"><i class="fa-solid fa-arrow-left"></i></button>
+      <button class="next-page"><i class="fa-solid fa-arrow-right"></i></button>
       <CardList />
     </section>
   </main>
@@ -16,7 +18,7 @@ export default {
   name: "MainComponent",
   components: {
     CardList,
-    SelectArchetype
+    SelectArchetype,
   },
 };
 </script>
@@ -32,6 +34,26 @@ section {
     width: 250px;
     background-color: transparent;
     margin-left: 0;
+  }
+  button {
+    background-color: $thirdcolor;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 50px;
+    &.next-page {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    &.prev-page {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+    &:hover {
+      background-color: $primarycolor;
+      transition-duration: 0.3s;
+    }
   }
 }
 </style>

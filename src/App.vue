@@ -20,11 +20,11 @@ export default {
     };
   },
   watch: {
-    'storage.selectedArchetype'(newParams, oldParams) {
+    "storage.selectedArchetype"(newParams, oldParams) {
       if (newParams !== oldParams) {
         this.setParams();
-      }      
-    }
+      }
+    },
   },
   methods: {
     setParams() {
@@ -45,6 +45,14 @@ export default {
         .then((res) => {
           console.log(res.data.data);
           this.storage.total = res.data.meta.total_rows;
+          const { total_pages, pages_remaining, previous_page_offset, next_page_offset } = res.data.meta;
+          this.storage.pages = {
+            total_pages,
+            pages_remaining,
+            previous_page_offset,
+            next_page_offset
+          };
+          console.log(this.storage.pages);
           this.storage.cards = res.data.data.map((card) => {
             return {
               id: card.id,
@@ -67,7 +75,7 @@ export default {
         .then((res) => {
           console.log(this.storage.apiUrl + this.storage.endPoint.archetype);
           console.log(res.data);
-          this.storage.archetypeList = res.data/* .slice(0, 10) */;
+          this.storage.archetypeList = res.data /* .slice(0, 10) */;
         })
         .catch((error) => {
           console.log(error);

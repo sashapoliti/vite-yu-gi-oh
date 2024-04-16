@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="header-cards" v-if="!storage.loading">
+    <div class="header-cards d-flex justify-content-between" v-if="!storage.loading">
       <TotalCards />
     </div>
     <div class="row" v-if="!storage.loading">

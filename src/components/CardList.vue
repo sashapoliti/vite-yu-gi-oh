@@ -11,7 +11,7 @@
       >
         <CardComponent
           :id="card.id"
-          :image="card.card_images[0].image_url"
+          :image="card.image"
           :name="card.name"
           :archetype="card.archetype"
         />

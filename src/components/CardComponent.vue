@@ -23,7 +23,7 @@ export default {
   border: 0;
   border-radius: 0;
   .content {
-    padding: 10px 0;
+    padding: 30px 0;
     h5 {
       color: $thirdcolor;
       margin: 0;

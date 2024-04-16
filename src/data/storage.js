@@ -12,7 +12,9 @@ export const storage = reactive({
       offset: 0
     }
   },
+  total: 0,
   cards: [],
   archetypeList: [],
+  selectedArchetype: "",
   loading: false
 });

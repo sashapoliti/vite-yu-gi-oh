@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header-cards" v-if="!storage.loading">
-      <h6>Found {{ storage.cards.length }} cards</h6>
+      <TotalCards />
     </div>
     <div class="row" v-if="!storage.loading">
       <div
@@ -23,13 +23,16 @@
 
 <script>
 import { storage } from "../data/storage.js";
+import TotalCards from "./TotalCards.vue";
 import CardComponent from "./CardComponent.vue";
 import ApiLoad from "./ApiLoad.vue";
+
 export default {
   name: "CardList",
   components: {
+    TotalCards,
     CardComponent,
-    ApiLoad,
+    ApiLoad
   },
   data() {
     return {
@@ -49,10 +52,6 @@ export default {
     background-color: $secondarycolor;
     color: $thirdcolor;
     padding: 20px;
-    h6 {
-      margin: 0;
-      font-weight: bold;
-    }
   }
 }
 </style>

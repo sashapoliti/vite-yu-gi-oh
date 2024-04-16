@@ -5,6 +5,12 @@ export const storage = reactive({
   endPoint: {
     cards: "cardinfo.php?num=20&offset=0",
   },
+  options: {
+    params: {
+      num: 20,
+      offset: 0
+    }
+  },
   cards: [],
   loading: false
 });

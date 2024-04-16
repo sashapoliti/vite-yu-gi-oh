@@ -23,7 +23,7 @@ export default {
     getCards() {
       this.storage.loading = true;
       axios
-        .get(this.storage.apiUrl + this.storage.endPoint.cards)
+        .get(this.storage.apiUrl + this.storage.endPoint.cards, this.storage.options)
         .then((res) => {
           console.log(res.data.data);
           this.storage.cards = res.data.data;
